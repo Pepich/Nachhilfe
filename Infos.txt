@@ -1,0 +1,45 @@
+Rückgabetyp Funktion(Parameter, Parameter) -> Beschreibung
+... Mehr Beschreibung/Beispiele
+
+===== Sonstiges =====
+
+void assert(int expression) -> Prüft, ob der Ausdruck 0 ist, wenn ja resultiert dies in einem Programmabbruch mit Fehlerausgabe.
+... Nützlich um Speicherreservierungen zu testen (p = malloc(...) -> assert(p)), oder für Programmtests beim Programmieren (i = add(1, 2) -> assert(i == 3)).
+
+
+
+===== Speicheroperationen =====
+
+void *calloc(int amount,  size) -> Reserviert Speicher für n Elemente der gegebenen Größe und gibt einen Pointer auf den Speicher zurück. Der Speicher ist mit 0 initialisiert.
+void *malloc(int amount * size) -> Reserviert Speicher mit der angegebene Größe und gibt einen Pointer auf den Speicher zurück. Der Speicher ist nicht initialisiert.
+... Sollte der angeforderte Speicher nicht zur Verfügung stehen, so geben beide Funktionen einen NULL-Pointer zurück.
+... Dieser kann mit z.B. assert(pointer) oder auch mit if (pointer == NULL) FEHLER(); erkannt werden.
+
+void free(void *memory) -> Gibt Speicher frei, der zuvor mit z.B. malloc reserviert wurde. Verhindert sog. Memoryleaks und reduziert Speicherverbrauch der Anwendung.
+... Lokale Variablen, sowie Funktionsparameter werden am ende einer Funktion automatisch wieder freigegeben.
+
+
+
+===== Strings =====
+
+void strcpy(char *dest, const char *source) -> Kopiert einen Nullterminierten String von source nach dest. Sollte source größer sein als der verfügbare Speicher in dest, tritt ein Bus-Fehler 10 auf.
+... Als source kann z.b. ein char[]/*char der bereits als Variable existiert, aber auch ein "String" verwendet werden.
+... Falls source nicht terminiert ist, so läuft strcpy bis zum ersten null-Zeichen im Speicher, was zu unvorhergesehenem Verhalten führt.
+
+void strncpy(char *dest, const char *source, int n) -> Kopiert n Zeichen von source nach dest. Bus-Fehler 10 wenn n größer ist, als der in dest verfügbare Speicher.
+... strncpy fügt keine Nullterminierung hinzu, außer wenn das Nullzeichen im Bereich liegt der kopiert werden soll.
+
+
+
+===== I/O =====
+
+int printf(const char *format, ...) -> Erzeugt eine Konsolenausgabe. Parameter mit %<...>.
+int scanf(char *format, ...) -> Nimmt eine Benutzereingabe vor. Parameter mit %<...>.
+... Beide Funktionen geben die Anzahl der geschriebenen/gelesenen Zeichen zurück, oder eine negative Zahl falls ein Fehler auftritt.
+... printf("Dies ist eine Zahl. Sie hat den Wert %d.\nBitte die Zahl wiederholen:", 10);
+... int i;
+... scanf("%d", %i);
+
+int getchar(void) -> Liest ein Zeichen aus stdin, und gibt es als int zurück.
+int putchar(int char) -> Schreibt ein Zeichen in stdout und gibt das Zeichen als int zurück.
+... Beide Funktionen geben EOF zurück, falls ein Fehler auftritt.
