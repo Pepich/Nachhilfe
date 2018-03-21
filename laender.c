@@ -91,9 +91,7 @@ void sort_asc(Liste* list)
 {
     // Wenn Liste leer, dann abbruch
     if (list->first == NULL)
-    {
         return;
-    }
     // Länge der Liste zählen
     int length = len(list);
     // Hilfsarray anlegen, wenn man in einer Liste Elemente tauscht, so wird das iterieren verdammt schwer. Bei arrays ist das mit ner Zähövariable einfach.
@@ -163,10 +161,7 @@ void print(Liste* list)
     Knoten *k = list->first;
     // Falls Liste leer ist, Abbruch!
     if (k == NULL)
-    {
-        printf("List is empty!\n");
         return;
-    }
     // Über alle Elemente iterieren und ausgeben
     for (; k != NULL; k = k->next)
         printf("Name: %s\n2er: %s\n3er: %s\n\n", k->staat.name, k->staat.alpha2, k->staat.alpha3);
