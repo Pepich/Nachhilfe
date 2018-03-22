@@ -1,0 +1,40 @@
+M:  3
+N: 10
+Ausgabe A: 3, 10
+m < n? Ja
+    M: 8
+    N: 9
+    Ausgabe A: 8, 9
+    m < n? Ja
+        M: 13
+        N: 8
+        Ausgabe A: 13, 8
+        m < n? Nein.
+        Ausgabe E: 13, 8
+    N:5
+    m < n? Nein
+    Ausgabe: E: 8, 5
+N: 6
+m < n? Ja
+    M: 8
+    N: 5
+    Ausgabe: A: 8, 5
+    m < n? Nein
+    Ausgabe: E: 8, 5
+N: 2
+m < n? Nein
+Ausgabe: E: 3, 2
+Ende
+
+
+
+Ausgabe:
+
+A: m = 3, n = 10
+A: m = 8, n = 9
+A: m = 13, n = 8
+E: m = 13, n = 8
+E: m = 8, n = 5
+A: m = 8, n = 5
+E: m = 8, n = 5
+E: m = 3, n = 2
