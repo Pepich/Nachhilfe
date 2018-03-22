@@ -28,8 +28,22 @@ Ende
 
 
 
-Ausgabe:
+Ausgabe (von Hand):
 
+A: m = 3, n = 10
+A: m = 8, n = 9
+A: m = 13, n = 8
+E: m = 13, n = 8
+E: m = 8, n = 5
+A: m = 8, n = 5
+E: m = 8, n = 5
+E: m = 3, n = 2
+
+Kontrolle (Generiert durch Programm):
+
+Benedikts-MBP:~ Pepich$ nano Rekur.c
+Benedikts-MBP:~ Pepich$ gcc -o rekur Rekur.c 
+Benedikts-MBP:~ Pepich$ ./rekur 
 A: m = 3, n = 10
 A: m = 8, n = 9
 A: m = 13, n = 8
