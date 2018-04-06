@@ -87,39 +87,50 @@ void assignBy(Knoten *array[], Liste *list, int length)
 }
 
 // Bubblesort, aufsteigend
+// Bubblesort, ascending
 void sort_asc(Liste* list)
 {
     // Wenn Liste leer, dann abbruch
+    // Skip empty list
     if (list->first == NULL)
         return;
     // Länge der Liste zählen
+    // Count elements in list so we know the length
     int length = len(list);
     // Hilfsarray anlegen, wenn man in einer Liste Elemente tauscht, so wird das iterieren verdammt schwer. Bei arrays ist das mit ner Zähövariable einfach.
+    // Copy elements into an array, as modifying a linked list is umm. No.
     Knoten *array[length];
     // Array aus Liste befüllen
+    // And fill it with the elements from the list. Custom function, just assume it works.
     fill(array, list, length);
 
     // Sort, ascending order
     // Fange beim ersten Element an, sortiere jedes Element bis zum letzen
+    // Start at index 0, sort all elements till we arrive at the last one
     for (int i = 0; i < length; i++)
     {
         // Iteriere rückwärts bis zum Anfang des Arrays, oder bis ein kleineres Element gefunden wird
+        // Go backwards from our index to the start of the array
         for (int j = i; j > 0; j--)
         {
             // Wenn das hintere Element kleiner ist, tausche
+            // Swap if the 2nd element is smaller
             if (strcmp(array[j]->staat.name, array[j-1]->staat.name) < 0)
             {
                 // Hilfsvariable zum Tauschen
+                // Temp variable for swapping elements
                 Knoten *temp = array[j];
                 array[j] = array[j-1];
                 array[j-1] = temp;
             }
             // Brich Schleifendurchlauf ab, sobald ein kleineres Element gefunden wurde, und springe zum nächsten Element des Arrays
+            // If element isn't smaller, skip rest of the list
             else
                 break;
         }
     }
     // Liste der Reihe nach mit Elementen aus Hilfsarray befüllen
+    // Refill list with elements from array
     assignBy(array, list, length);
 }
 
